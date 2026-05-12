@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import Counter from './components/Counter.vue';
 import UserList from './components/UserList.vue';
 import UserForm from './components/UserForm.vue';
+import ProductList from './components/ProductList.vue';
 
 const users = ref([
     {
@@ -90,8 +91,10 @@ const addUser = (user) => {
 </script>
 
 <template>
-    <UserForm @add-user="addUser" />
-    <UserList :users="users" />
+    <!-- <UserForm @add-user="addUser" />
+    <UserList :users="users" /> -->
+    <ProductList></ProductList> 
+
 </template>
 
 <style scoped></style>
