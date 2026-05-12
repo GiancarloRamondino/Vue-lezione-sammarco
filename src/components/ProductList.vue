@@ -23,12 +23,10 @@ const products = [
         v-if="!showOnlyAvailable || product.inStock"
         class="product-div"
     >
-        <div v-if="!showOnlyAvailable || product.inStock">
             <p>{{ product.nome }}</p>
             <p>{{ product.prezzo }}</p>
             <p class="blue" v-if="product.inStock">Disponibile</p>
             <p class="red" v-else>Esaurito</p>
-        </div>
 
     </div>
 
