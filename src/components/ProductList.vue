@@ -1,5 +1,5 @@
 <script setup>
-let showOnlyAvailable = true;
+let showOnlyInStock = true;
 const products = [
     { id: 1, nome: "Scarpe Nike Air", prezzo: 150, inStock: true },
     { id: 2, nome: "Maglietta Adidas", prezzo: 45, inStock: true },
@@ -19,16 +19,16 @@ const products = [
       v-for="product in products"
       :key="product.id"
     >
-    <div
-        v-if="!showOnlyAvailable || product.inStock"
-        class="product-div"
-    >
+        <div
+            v-if="!showOnlyInStock || product.inStock"
+            class="product-div"
+        >
             <p>{{ product.nome }}</p>
             <p>{{ product.prezzo }}</p>
             <p class="blue" v-if="product.inStock">Disponibile</p>
             <p class="red" v-else>Esaurito</p>
 
-    </div>
+        </div>
 
     </div>
 </template>
