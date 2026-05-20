@@ -1,5 +1,7 @@
 <script setup>
-let showOnlyInStock = true;
+import { ref } from 'vue';
+
+const showOnlyInStock = ref(true);
 const products = [
     { id: 1, nome: "Scarpe Nike Air", prezzo: 150, inStock: true },
     { id: 2, nome: "Maglietta Adidas", prezzo: 45, inStock: true },
@@ -15,6 +17,12 @@ const products = [
 </script>
 
 <template>
+    
+    <button @click="showOnlyInStock = !showOnlyInStock">
+        {{ showOnlyInStock ? 'Mostra tutti' : 'Mostra solo disponibili' }}
+    </button>
+
+
     <div
       v-for="product in products"
       :key="product.id"
@@ -27,10 +35,39 @@ const products = [
             <p>{{ product.prezzo }}</p>
             <p class="blue" v-if="product.inStock">Disponibile</p>
             <p class="red" v-else>Esaurito</p>
+        </div>
+    </div> 
+
+
+    <!-- 
+    <div
+    v-for="product in products"
+    :key="product.id"
+    >
+        <div
+            :style="{
+            visibility:
+                !showOnlyInStock || product.inStock
+                ? 'visible'
+                : 'hidden'
+            }"
+            class="product-div"
+        >
+            <p>{{ product.nome }}</p>
+            <p>{{ product.prezzo }}</p>
+
+            <p class="blue" v-if="product.inStock">
+            Disponibile
+            </p>
+
+            <p class="red" v-else>
+            Esaurito
+            </p>
 
         </div>
+    </div> 
+    -->
 
-    </div>
 </template>
 
 <style scoped>
@@ -38,13 +75,24 @@ const products = [
         margin-bottom: 20px;
         background-color: aquamarine;
         border-radius: 15px;
-        border: 1px red solid;
+        border: 1px rgb(89, 81, 81) solid;
         padding: 10px;
     }
+    
     .red{
         color: red;
     }
     .blue{
         color: blue;
+    }
+
+    button{
+        width: 100%;
+        padding: 10px;
+        font-size: large;
+        background-color: rgb(49, 97, 81);
+        color: aliceblue;
+        margin-bottom: 30px;
+        border-radius: 30px;
     }
 </style>
