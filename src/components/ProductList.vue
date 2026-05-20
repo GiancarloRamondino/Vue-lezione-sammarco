@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 
 const showOnlyInStock = ref(true);
 const products = [
@@ -14,6 +14,22 @@ const products = [
     { id: 9, nome: "Giacca Invernale", prezzo: 180, inStock: false },
     { id: 10, nome: "Smartphone Xiaomi", prezzo: 299, inStock: true }
 ];
+
+const author = reactive({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery'
+  ]
+})
+
+
+// a computed ref
+const publishedBooksMessage = computed(() => {
+  return author.books.length > 0 ? 'Si' : 'No'
+})
+
 </script>
 
 <template>
@@ -21,8 +37,7 @@ const products = [
     <button @click="showOnlyInStock = !showOnlyInStock">
         {{ showOnlyInStock ? 'Mostra tutti' : 'Mostra solo disponibili' }}
     </button>
-
-
+<!-- 
     <div
       v-for="product in products"
       :key="product.id"
@@ -36,37 +51,12 @@ const products = [
             <p class="blue" v-if="product.inStock">Disponibile</p>
             <p class="red" v-else>Esaurito</p>
         </div>
-    </div> 
+    </div>  -->
 
+    <p>{{ author.name}}</p>
+    <p>Has published books:</p>
+    <span>{{ publishedBooksMessage }}</span>
 
-    <!-- 
-    <div
-    v-for="product in products"
-    :key="product.id"
-    >
-        <div
-            :style="{
-            visibility:
-                !showOnlyInStock || product.inStock
-                ? 'visible'
-                : 'hidden'
-            }"
-            class="product-div"
-        >
-            <p>{{ product.nome }}</p>
-            <p>{{ product.prezzo }}</p>
-
-            <p class="blue" v-if="product.inStock">
-            Disponibile
-            </p>
-
-            <p class="red" v-else>
-            Esaurito
-            </p>
-
-        </div>
-    </div> 
-    -->
 
 </template>
 
@@ -75,7 +65,7 @@ const products = [
         margin-bottom: 20px;
         background-color: aquamarine;
         border-radius: 15px;
-        border: 1px rgb(89, 81, 81) solid;
+        border: 1px rgb(190, 139, 139) solid;
         padding: 10px;
     }
     
