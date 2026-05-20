@@ -2,7 +2,7 @@
 import { computed, reactive, ref } from 'vue';
 
 const showOnlyInStock = ref(true);
-const products = [
+const products = ref([
     { id: 1, nome: "Scarpe Nike Air", prezzo: 150, inStock: true },
     { id: 2, nome: "Maglietta Adidas", prezzo: 45, inStock: true },
     { id: 3, nome: "Jeans Levi's", prezzo: 85, inStock: false },
@@ -13,7 +13,7 @@ const products = [
     { id: 8, nome: "Portafoglio Pelle", prezzo: 40, inStock: true },
     { id: 9, nome: "Giacca Invernale", prezzo: 180, inStock: false },
     { id: 10, nome: "Smartphone Xiaomi", prezzo: 299, inStock: true }
-];
+]);
 
 const author = reactive({
   name: 'John Doe',
@@ -25,9 +25,19 @@ const author = reactive({
 })
 
 
-// a computed ref
 const publishedBooksMessage = computed(() => {
   return author.books.length > 0 ? 'Si' : 'No'
+})
+
+function calculateBooksMessage() {
+  return author.books.length > 0 ? 'Yes' : 'No'
+}
+
+
+const filteredProducts = computed(() => {
+  return products.value.filter(product => {
+    return !showOnlyInStock.value || product.inStock
+  })
 })
 
 </script>
@@ -37,25 +47,26 @@ const publishedBooksMessage = computed(() => {
     <button @click="showOnlyInStock = !showOnlyInStock">
         {{ showOnlyInStock ? 'Mostra tutti' : 'Mostra solo disponibili' }}
     </button>
-<!-- 
-    <div
-      v-for="product in products"
-      :key="product.id"
-    >
-        <div
-            v-if="!showOnlyInStock || product.inStock"
-            class="product-div"
-        >
-            <p>{{ product.nome }}</p>
-            <p>{{ product.prezzo }}</p>
-            <p class="blue" v-if="product.inStock">Disponibile</p>
-            <p class="red" v-else>Esaurito</p>
-        </div>
-    </div>  -->
 
+    <div
+      v-for="product in filteredProducts"
+      :key="product.id"
+      class="product-div"
+    >
+        <p>{{ product.nome }}</p>
+        <p>{{ product.prezzo }}</p>
+        <p class="blue" v-if="product.inStock">Disponibile</p>
+        <p class="red" v-else>Esaurito</p>
+    </div> 
+
+
+
+<!--     
     <p>{{ author.name}}</p>
     <p>Has published books:</p>
     <span>{{ publishedBooksMessage }}</span>
+    <br>
+    <span>{{ calculateBooksMessage() }}</span> -->
 
 
 </template>
