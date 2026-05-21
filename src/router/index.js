@@ -1,5 +1,6 @@
 import HomeView from '@/views/HomeView.vue'
 import ProductsView from '@/views/ProductsView.vue'
+import UsersView from '@/views/UsersView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -15,6 +16,11 @@ const router = createRouter({
       name: 'products',             // Un nome univoco per la rotta (opzionale ma consigliato)
       component: ProductsView       // Il componente associato
     },
+    {
+      path:'/users',
+      name:'users',
+      component: UsersView
+    }
   ],
 })
 

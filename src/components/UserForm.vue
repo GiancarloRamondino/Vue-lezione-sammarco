@@ -11,6 +11,7 @@
 <script setup>
 import { reactive } from 'vue';
 
+// Dichiarazione dell'evento per evitare l'avviso "Extraneous non-emits"
 const emit = defineEmits(['add-user']);
 
 const form = reactive({
@@ -28,10 +29,10 @@ const submitForm = () => {
         email: form.email.trim()
     });
 
+    // Reset dei campi del form dopo l'invio
     form.cognome = '';
     form.nome = '';
     form.eta = null;
     form.email = '';
 };
 </script>
-
