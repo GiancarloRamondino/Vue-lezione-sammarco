@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import Navbar from './components/Navbar.vue';
 // const users = ref([
 //     {
 //         id: 1,
@@ -86,13 +87,14 @@ import { ref } from 'vue';
 </script>
 
 <template>
+    <Navbar></Navbar>
     <main>
         <RouterView />
     </main>
 </template>
 
 <style scoped>
-    /* main{
-        background-color: aliceblue;
-    } */
+    main{
+        padding: 0.8rem;
+    }
 </style>
