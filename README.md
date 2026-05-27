@@ -231,3 +231,8 @@ async function getStudentData() {
     2. L'if (!response.ok) rileva errori del server (pagina non trovata o server in crash).
 
 3. CORS: Ricorda che per motivi di sicurezza, il browser potrebbe bloccare richieste verso domini diversi se il server non è configurato per accettarle (Cross-Origin Resource Sharing).
+
+## Json Server
+```
+npx json-server db.json 
+```

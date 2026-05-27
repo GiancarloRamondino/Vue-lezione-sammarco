@@ -90,6 +90,34 @@
       "eta": 25,
       "email": "manodedios@fifa.com",
       "id": "kkgm30T1LjI"
+    },
+    {
+      "cognome": "Dibala",
+      "nome": "Paolo",
+      "eta": 26,
+      "email": "p@ap.it",
+      "id": "k4u3LYmYRlg"
+    },
+    {
+      "cognome": "a",
+      "nome": "a",
+      "eta": 4,
+      "email": "n@a.it",
+      "id": "SvQ2j4QaTfo"
+    },
+    {
+      "cognome": "m",
+      "nome": "m",
+      "eta": 3,
+      "email": "m@libero.it",
+      "id": "hfYFXU8SqLQ"
+    },
+    {
+      "cognome": "aa",
+      "nome": "aa",
+      "eta": "aa",
+      "email": "aa@aa.it",
+      "id": "WscydRFTo7A"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

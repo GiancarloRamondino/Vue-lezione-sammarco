@@ -4,6 +4,7 @@ import UsersList from '@/components/UsersList.vue';
 import { onMounted, ref } from 'vue';
 
 const users = ref([]);
+let etichetta = ref("")
 
 onMounted(() => {
   fetch('http://localhost:3000/users')
@@ -37,7 +38,12 @@ function addUser(data){
         })
     })
     .then(response => response.json())
-    .then(data => console.log("Dato aggiunto:", data))
+    .then(data => {
+      console.log("Dato aggiunto:", data)
+      users.value.push(data);
+    }
+      
+    )
     .catch(error => console.error("Errore:", error));   
 
 }
@@ -48,6 +54,7 @@ function addUser(data){
 <template>
     <!-- CORREZIONE: L'evento viene ascoltato qui, dove viene effettivamente emesso -->
     <UserForm @add-user="addUser"></UserForm>
+    <span>{{ etichetta }}</span>
     <!-- La lista deve solo ricevere i dati aggiornati -->
-    <UsersList :users="users"></UsersList>
+    <!-- <UsersList :users="users"></UsersList> -->
 </template>

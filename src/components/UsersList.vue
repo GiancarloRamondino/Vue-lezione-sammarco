@@ -27,13 +27,16 @@
 </template>
 
 
-<script setup>
+<script setup lang="ts">
 
-const { users } = defineProps({
-    users: {
-        type: Array,
-        required: true
+    interface User {
+        id: number
+        cognome: string
+        nome: string
+        eta: number
+        email: string
     }
-});
+
+    const { users } = defineProps<{ users: User[] }>()
 
 </script>

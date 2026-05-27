@@ -5,9 +5,9 @@
         <div class="logo">BrandLogo</div>
         <!-- Link di navigazione -->
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#prodotti">Prodotti</a></li>
-            <li><a href="#utenti">Utenti</a></li>
+            <li><router-link to="/">Home</router-link></li>
+            <li><router-link to="/products">Prodotti</router-link></li>
+            <li><router-link to="/users">Utenti</router-link></li>
             <li><a href="#contatti">Contatti</a></li>
         </ul>
     </nav>
