@@ -4,6 +4,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>N°</th>
                     <th>ID</th>
                     <th>Cognome</th>
                     <th>Nome</th>
@@ -12,8 +13,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in users" :key="user.id">
-                    <td>{{ user.id }}</td>
+                <tr v-for="user, i in users" :key="user.id">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ user.id}}</td>
                     <td>{{ user.cognome }}</td>
                     <td>{{ user.nome }}</td>
                     <td>{{ user.eta }}</td>

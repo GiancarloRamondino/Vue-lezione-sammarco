@@ -3,6 +3,7 @@ import UserForm from '@/components/UserForm.vue';
 import UsersList from '@/components/UsersList.vue';
 import { onMounted, ref } from 'vue';
 
+
 const users = ref([]);
 let etichetta = ref("")
 
@@ -20,11 +21,14 @@ onMounted(() => {
       // Aggiorna lo stato reattivo con i dati ricevuti
       users.value = data
     })
+    
+    console.log(users.value);
 
 })
 
 
 function addUser(data){
+    
     fetch('http://localhost:3000/users', {
         method: 'POST',
         headers: {
@@ -56,5 +60,5 @@ function addUser(data){
     <UserForm @add-user="addUser"></UserForm>
     <span>{{ etichetta }}</span>
     <!-- La lista deve solo ricevere i dati aggiornati -->
-    <!-- <UsersList :users="users"></UsersList> -->
+    <UsersList :users="users"></UsersList>
 </template>

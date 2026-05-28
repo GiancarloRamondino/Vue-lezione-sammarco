@@ -57,67 +57,32 @@
       "email": "francesco.rizzo@gmail.com"
     },
     {
-      "id": "9",
-      "cognome": "Gallo",
-      "nome": "Salvatore",
-      "eta": 41,
-      "email": "salvatore.gallo@gmail.com"
+      "id": "18",
+      "cognome": "c",
+      "nome": "c",
+      "eta": 1,
+      "email": "c@c.it"
     },
     {
-      "id": "10",
-      "cognome": "Costa",
-      "nome": "Alessio",
-      "eta": 26,
-      "email": "alessio.costa@gmail.com"
+      "id": "Lht4k_ygF6c",
+      "cognome": "D",
+      "nome": "d",
+      "eta": 12,
+      "email": "d@d.it"
     },
     {
-      "id": "hUzZdDRKkD8",
-      "cognome": "Altro cognome",
-      "nome": "Altro nome",
-      "eta": 100,
-      "email": "a@a.it"
+      "id": "PWwSxJoPC5U",
+      "cognome": "F",
+      "nome": "F",
+      "eta": 19,
+      "email": "d@d.it"
     },
     {
-      "cognome": "",
-      "nome": "Altro nome",
-      "eta": 100,
-      "email": "a@a.it",
-      "id": "NdvC_h47l-M"
-    },
-    {
-      "cognome": "Maradona",
-      "nome": "Diiego",
-      "eta": 25,
-      "email": "manodedios@fifa.com",
-      "id": "kkgm30T1LjI"
-    },
-    {
-      "cognome": "Dibala",
-      "nome": "Paolo",
-      "eta": 26,
-      "email": "p@ap.it",
-      "id": "k4u3LYmYRlg"
-    },
-    {
-      "cognome": "a",
-      "nome": "a",
-      "eta": 4,
-      "email": "n@a.it",
-      "id": "SvQ2j4QaTfo"
-    },
-    {
+      "id": "E3J9BMS2N2M",
       "cognome": "m",
       "nome": "m",
-      "eta": 3,
-      "email": "m@libero.it",
-      "id": "hfYFXU8SqLQ"
-    },
-    {
-      "cognome": "aa",
-      "nome": "aa",
-      "eta": "aa",
-      "email": "aa@aa.it",
-      "id": "WscydRFTo7A"
+      "eta": 2,
+      "email": "m@m.it"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
