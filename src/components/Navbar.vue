@@ -8,7 +8,7 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/products">Prodotti</router-link></li>
             <li><router-link to="/users">Utenti</router-link></li>
-            <li><a href="#contatti">Contatti</a></li>
+            <li><router-link to="/login">Login</router-link></li>
         </ul>
     </nav>
 

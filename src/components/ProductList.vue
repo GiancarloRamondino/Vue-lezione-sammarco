@@ -43,22 +43,24 @@ const filteredProducts = computed(() => {
 </script>
 
 <template>
-    
-    <button @click="showOnlyInStock = !showOnlyInStock">
+    <div>
+      <button @click="showOnlyInStock = !showOnlyInStock">
         {{ showOnlyInStock ? 'Mostra tutti' : 'Mostra solo disponibili' }}
-    </button>
+      </button>
 
-    <div
-      v-for="product in filteredProducts"
-      :key="product.id"
-      class="product-div"
-    >
-        <p>{{ product.nome }}</p>
-        <p>{{ product.prezzo }}</p>
-        <p class="blue" v-if="product.inStock">Disponibile</p>
-        <p class="red" v-else>Esaurito</p>
-    </div> 
+      <div
+        v-for="product in filteredProducts"
+        :key="product.id"
+        class="product-div"
+      >
+          <p>{{ product.nome }}</p>
+          <p>{{ product.prezzo }}</p>
+          <p class="blue" v-if="product.inStock">Disponibile</p>
+          <p class="red" v-else>Esaurito</p>
+      </div> 
 
+    </div>
+    
 
 
 <!--     
