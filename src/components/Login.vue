@@ -44,8 +44,22 @@ let password = ref("");
 //     }
 // }
 
+const dati = {
+    username: username.value,
+    password: password.value
+}
+
 async function login(){
-    const response = await fetch("http://localhost:8080");
+    const response = await fetch("http://localhost:3000/login",{
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(dati)
+    } 
+        
+    );
+
     console.log(response);
 }
 
