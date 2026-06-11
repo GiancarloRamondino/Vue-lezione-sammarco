@@ -3,64 +3,39 @@ import { ref } from 'vue';
 let username = ref("");
 let password = ref("");
 
-// async function login(){
-//     const payload = {
-//         username: username,
-//         password: password
-//     }
-//     try {
-//         const response = fetch("http://localhost:8080", 
-//         {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify(payload)
-//         })
-
-//         if (!response.ok) {
-//             throw new Error(`Errore del server: ${response.status}`);
-//         }
-
-//         // 4. Leggiamo i dati inviati dal server (es. un token JWT)
-//         const data = await response.json();
-
-//         if (data.token) {
-//             // 5. Salviamo il token nel localStorage
-//             localStorage.setItem("user_token", data.token);
-            
-//             // Opzionale: puoi salvare anche altre info non sensibili, come il nome utente
-//             localStorage.setItem("username", payload.username);
-
-//             alert("Login effettuato con successo!");
-//             // Qui puoi reindirizzare l'utente (es. router.push('/dashboard'))
-//         } else {
-//             alert("Login fallito: token non ricevuto.");
-//         }
-
-//     } catch (error) {
-//         console.error("Errore durante il login:", error);
-//         alert("Si è verificato un errore durante l'accesso. Riprova.");
-//     }
-// }
-
-const dati = {
-    username: username.value,
-    password: password.value
-}
 
 async function login(){
-    const response = await fetch("http://localhost:3000/login",{
-        method: "POST",
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify(dati)
-    } 
-        
-    );
+    const payload = {
+        username: username.value,
+        password: password.value
+    }
 
-    console.log(response);
+    try {
+        const response = await fetch("http://localhost:3000/api/login",{
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok){
+            throw new Error(`Errore del server ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+        if(data){
+            localStorage.setItem("token", data)
+            //localStorage.setItem("username", data.username)
+        }
+            
+    } catch (error) {
+        console.error("Errore", error)
+    }
+
+    
 }
 
 </script>
