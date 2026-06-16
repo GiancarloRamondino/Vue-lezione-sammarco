@@ -6,3 +6,8 @@ import Login from '@/components/Login.vue';
 <template>
     <Login></Login>
 </template>
+
+<style scoped>
+
+    
+</style>

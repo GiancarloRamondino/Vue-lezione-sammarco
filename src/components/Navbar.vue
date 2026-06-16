@@ -1,5 +1,4 @@
 <template>
-
     <nav class="navbar">
         <!-- Logo del sito -->
         <div class="logo">BrandLogo</div>
@@ -8,11 +7,26 @@
             <li><router-link to="/">Home</router-link></li>
             <li><router-link to="/products">Prodotti</router-link></li>
             <li><router-link to="/users">Utenti</router-link></li>
-            <li><router-link to="/login">Login</router-link></li>
+            <li v-if="authStore.token">
+                <a href="#" @click.prevent="handleLogout">Logout</a>
+            </li>
+            <li v-else><router-link to="/login">Login</router-link></li>
         </ul>
     </nav>
-
 </template>
+
+<script setup>
+    import { useAuthStore } from '@/stores/authStore';
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+    const authStore = useAuthStore();
+
+    function handleLogout(){
+        authStore.removeToken();
+        router.push('/login');
+    }
+</script>
 
 <style scoped>
 /* 

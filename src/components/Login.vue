@@ -1,8 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import { useAuthStore } from '@/stores/authStore';
+
 let username = ref("");
 let password = ref("");
 
+const authStore = useAuthStore();
 
 async function login(){
     const payload = {
@@ -27,8 +30,7 @@ async function login(){
         console.log(data);
 
         if(data){
-            localStorage.setItem("token", data)
-            //localStorage.setItem("username", data.username)
+            authStore.saveToken(data);
         }
             
     } catch (error) {
