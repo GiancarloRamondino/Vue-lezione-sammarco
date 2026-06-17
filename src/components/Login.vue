@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useAuthStore } from '@/stores/authStore';
+import Button from './ui/Button.vue';
+import HeartIcon from './ui/HeartIcon.vue';
 
 let username = ref("");
 let password = ref("");
@@ -47,6 +49,14 @@ async function login(){
     <form>
         <input type="text" placeholder="Username" v-model="username">
         <input type="password" placeholder="Password" v-model="password">
-        <button @click.prevent="login">Login</button>
+        <Button @click.prevent="login">
+            <span>Login</span><HeartIcon/>
+        </Button>
     </form>
 </template>
+
+<style scoped>
+    input{
+        padding: 5px;
+    }
+</style>
